@@ -58,7 +58,8 @@ Feature highlight:
 
 %build
 NOCONFIGURE=yes ./autogen.sh
-%configure2_5x
+%configure2_5x \
+	--disable-static
 
 %make
 
@@ -69,6 +70,7 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
 %files
 %{_bindir}/*
+%{_libdir}/enjoy_ql.so
 %{_libdir}/%{name}/*.so
 %{_iconsdir}/*.png
 %{_datadir}/%{name}/*.edj
