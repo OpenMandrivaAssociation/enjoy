@@ -23,6 +23,7 @@ URL:		http://enlightenment.org/
 Source0: 	%{name}-%{version}.%{svnrev}.tar.xz
 
 BuildRequires:	edje 
+BuildRequires:	elementary 
 BuildRequires:	embryo 
 BuildRequires:	evas 
 BuildRequires:	gettext-devel
@@ -64,9 +65,11 @@ NOCONFIGURE=yes ./autogen.sh
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
 %files
 %{_bindir}/*
+%{_libdir}/%{name}/*.so
 %{_iconsdir}/*.png
 %{_datadir}/%{name}/*.edj
 %{_datadir}/applications/*.desktop
