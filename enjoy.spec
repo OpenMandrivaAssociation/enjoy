@@ -18,7 +18,7 @@ Name:		enjoy
 Version:	0.1.0
 Release:	0.%{svnrev}.1
 License:	LGPL,GPL
-Group:		Graphical desktop/Sound/Enlightenment
+Group:		Graphical desktop/Enlightenment
 URL:		http://enlightenment.org/
 Source0: 	%{name}-%{version}.%{svnrev}.tar.xz
 
