@@ -33,6 +33,7 @@ BuildRequires:	pkgconfig(elementary)
 BuildRequires:	pkgconfig(emotion)
 BuildRequires:	pkgconfig(lightmediascanner)
 BuildRequires:	pkgconfig(sqlite3)
+BuildRequires:	pkgconfig(eweather)
 
 %description
 Enjoy is a music player written using Enlightenment Foundation Libraries (EFL) 
