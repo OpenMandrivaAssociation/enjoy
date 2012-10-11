@@ -11,7 +11,7 @@
 #cd ..; \
 #tar -Jcf enjoy-$PKG_VERSION.tar.xz enjoy/ --exclude .svn --exclude .*ignore
 
-%define svnrev  66124
+%define svnrev	74611 
 
 Summary: 	Enjoy is a music player
 Name:		enjoy
