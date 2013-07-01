@@ -13,7 +13,7 @@
 
 %define svnrev	74611 
 
-Summary: 	Enjoy is a music player
+Summary: 	Music player
 Name:		enjoy
 Version:	0.1.0
 Release:	0.%{svnrev}.1
