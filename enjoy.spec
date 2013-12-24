@@ -1,73 +1,46 @@
-#Tarball of svn snapshot created as follows...
-#Cut and paste in a shell after removing initial #
+%define gitdate 20131224
 
-#svn co http://svn.enlightenment.org/svn/e/trunk/enjoy enjoy; \
-#cd enjoy; \
-#SVNREV=$(LANGUAGE=C svn info | grep "Last Changed Rev:" | cut -d: -f 2 | sed "s@ @@"); \
-#v_maj=$(cat configure.ac | grep 'm4_define(\[v_maj\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
-#v_min=$(cat configure.ac | grep 'm4_define(\[v_min\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
-#v_mic=$(cat configure.ac | grep 'm4_define(\[v_mic\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
-#PKG_VERSION=$v_maj.$v_min.$v_mic.$SVNREV; \
-#cd ..; \
-#tar -Jcf enjoy-$PKG_VERSION.tar.xz enjoy/ --exclude .svn --exclude .*ignore
-
-%define svnrev	74611 
-
-Summary: 	Music player
+Summary:	Music player for Enlightenment
 Name:		enjoy
 Version:	0.1.0
-Release:	0.%{svnrev}.1
-License:	LGPL,GPL
+Release:	1.%{gitdate}.1
+License:	LGPLv3+
 Group:		Graphical desktop/Enlightenment
-URL:		http://enlightenment.org/
-Source0: 	%{name}-%{version}.%{svnrev}.tar.xz
-
-BuildRequires:	edje 
-BuildRequires:	elementary 
-BuildRequires:	embryo 
-BuildRequires:	evas 
+Url:		http://enlightenment.org/
+Source0: 	%{name}-%{gitdate}.tar.bz2
+BuildRequires:	edje
+BuildRequires:	elementary
+BuildRequires:	embryo
+BuildRequires:	evas
 BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(ecore)
-BuildRequires:	pkgconfig(edbus)
+BuildRequires:	pkgconfig(ecore-evas)
+BuildRequires:	pkgconfig(ecore-file)
+BuildRequires:	pkgconfig(eina)
+BuildRequires:	pkgconfig(eldbus)
 BuildRequires:	pkgconfig(elementary)
 BuildRequires:	pkgconfig(emotion)
+BuildRequires:	pkgconfig(evas)
 BuildRequires:	pkgconfig(lightmediascanner)
 BuildRequires:	pkgconfig(sqlite3)
-BuildRequires:	pkgconfig(eweather)
 
 %description
-Enjoy is a music player written using Enlightenment Foundation Libraries (EFL) 
-with focus on speed and mobile usability, yet should be usable on desktops as 
+Enjoy is a music player written using Enlightenment Foundation Libraries (EFL)
+with focus on speed and mobile usability, yet should be usable on desktops as
 well.
 
-Enjoy is modeled around a media database constructed by LightMediaScanner, it 
-is not meant to play single files from disk, instead it will recursively index 
-directories for music files and then list them by artist, album, genre and so 
-on. Playlists are also supported, as well as random or filter playlists can be 
+Enjoy is modeled around a media database constructed by LightMediaScanner, it
+is not meant to play single files from disk, instead it will recursively index
+directories for music files and then list them by artist, album, genre and so
+on. Playlists are also supported, as well as random or filter playlists can be
 dynamically generated.
 
 Feature highlight:
-
     * Fast database scanning
     * Efficient handling of huge collections
     * MPRIS compliant
     * mobile usability
-    * Search for covers in Last.FM internet service 
-
-%prep
-%setup -qn %{name}
-
-%build
-NOCONFIGURE=yes ./autogen.sh
-%configure2_5x \
-	--disable-static
-
-%make
-
-%install
-rm -rf %{buildroot}
-%makeinstall_std
-find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
+    * Search for covers in Last.FM internet service
 
 %files
 %{_bindir}/*
@@ -76,4 +49,20 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %{_iconsdir}/*.png
 %{_datadir}/%{name}/*.edj
 %{_datadir}/applications/*.desktop
+
+#----------------------------------------------------------------------------
+
+%prep
+%setup -qn %{name}
+
+%build
+autoreconf -fi
+%configure2_5x \
+	--disable-static
+
+%make
+
+%install
+%makeinstall_std
+
 
