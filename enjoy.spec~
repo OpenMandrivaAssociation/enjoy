@@ -7,7 +7,7 @@ Release:	1.%{gitdate}.1
 License:	LGPLv3+
 Group:		Graphical desktop/Enlightenment
 Url:		http://enlightenment.org/
-Source0: 	%{name}-%{gitdate}.tar.gz
+Source0: 	%{name}-%{gitdate}.tar.bz2
 BuildRequires:	edje
 BuildRequires:	elementary
 BuildRequires:	embryo
