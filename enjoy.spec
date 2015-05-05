@@ -1,13 +1,13 @@
-%define gitdate 20131224
+%define gitdate 20150505
 
 Summary:	Music player for Enlightenment
 Name:		enjoy
 Version:	0.1.0
-Release:	1.%{gitdate}.1
+Release:	1.%{gitdate}.2
 License:	LGPLv3+
 Group:		Graphical desktop/Enlightenment
 Url:		http://enlightenment.org/
-Source0: 	%{name}-%{gitdate}.tar.bz2
+Source0: 	%{name}-%{gitdate}.tar.gz
 BuildRequires:	edje
 BuildRequires:	elementary
 BuildRequires:	embryo
@@ -53,7 +53,7 @@ Feature highlight:
 #----------------------------------------------------------------------------
 
 %prep
-%setup -qn %{name}
+%setup -qn %{name}-%{gitdate}
 
 %build
 autoreconf -fi
