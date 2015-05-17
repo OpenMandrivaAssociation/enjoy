@@ -21,7 +21,7 @@ BuildRequires:	pkgconfig(eina)
 BuildRequires:	pkgconfig(eldbus)
 BuildRequires:	pkgconfig(elementary)
 BuildRequires:	pkgconfig(emotion)
-BuildRequires:	pkgconfig(evas)
+BuildRequires:	pkgconfig(evas) => 1.14.0
 BuildRequires:	pkgconfig(lightmediascanner)
 BuildRequires:	pkgconfig(sqlite3)
 
