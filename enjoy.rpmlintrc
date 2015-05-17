@@ -1,0 +1,2 @@
+addFilter("E: invalid-soname")
+addFilter("E: executable-in-library-package")

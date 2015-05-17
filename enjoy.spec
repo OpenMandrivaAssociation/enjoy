@@ -8,6 +8,7 @@ License:	LGPLv3+
 Group:		Graphical desktop/Enlightenment
 Url:		http://enlightenment.org/
 Source0: 	%{name}-%{gitdate}.tar.gz
+Source100:	%{name}.rpmlintrc
 BuildRequires:	edje
 BuildRequires:	elementary
 BuildRequires:	embryo
