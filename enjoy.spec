@@ -6,7 +6,7 @@ Version:	0.1.0
 Release:	1.%{gitdate}.2
 License:	LGPLv3+
 Group:		Graphical desktop/Enlightenment
-Url:		http://enlightenment.org/
+Url:		https://enlightenment.org/
 Source0: 	%{name}-%{gitdate}.tar.gz
 Source100:	%{name}.rpmlintrc
 BuildRequires:	edje
